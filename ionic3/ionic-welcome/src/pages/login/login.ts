@@ -40,6 +40,11 @@ export class Login {
 
     kommunicate.login(kmUser, function(response) {
       console.log("Kommunicate login success response : " + response);
+      kommunicate.registerPushNotification((response)=>{
+        console.log("Kommunicate Push success response : " + response);
+      },()=>{
+        console.log("Kommunicate Push failed response : " + response);
+      });
        kommunicate.launchConversation(function(response) {
          console.log("Kommunicate launch success response : " + response);
        }, function(response) {
@@ -48,7 +53,6 @@ export class Login {
     }, function(response) {
       console.log("Kommunicate login failure response : " + response);
     });
-    //this.navCtrl.push(TabsPage, {}, {animate: false});
   }
 
 }

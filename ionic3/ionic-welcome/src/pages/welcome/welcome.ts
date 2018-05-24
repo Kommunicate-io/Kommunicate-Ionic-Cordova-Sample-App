@@ -24,6 +24,7 @@ export class Welcome {
   }
 
   login(){
+    //this.navCtrl.push(Login);
     kommunicate.isLoggedIn((response) => {
       if(response === "true"){
         kommunicate.launchConversation((response) => {
@@ -50,27 +51,34 @@ export class Welcome {
   }
 
   startNew(){
-    let vary = {
-      'agentId':'reytum@live.com',
-      'botId': 'Hotel-Booking-Assistant'
-     };
+     kommunicate.launchConversation((response)=>{
+      var vary = {
+        'agentId':'reytum@live.com',
+        'botId': 'Hotel-Booking-Assistant'
+       };
 
-    kommunicate.startNewConversation(vary, (response) => {
-      let grpy = {
-        'groupId' : JSON.parse(response).key,
-        'takeOrder' : true
-      };
-
-      kommunicate.launchParticularConversation(grpy, function(response) {
-        console.log("Kommunicate launch success response : " + response);
-      }, function(response) {
-       console.log("Kommunicate launch failure response : " + response);
+       kommunicate.startNewConversation(vary, (response) => {
+        var grpy = {
+          'groupId' : response,
+          'takeOrder' : true
+        };
+  
+        console.log("Reytum Launch object : " + JSON.stringify(grpy));
+  
+        kommunicate.launchParticularConversation(grpy, function(response) {
+          console.log("Kommunicate launch success response : " + response);
+        }, function(response) {
+         console.log("Kommunicate launch failure response : " + response);
+        });
+        
+         console.log("Kommunicate create conversation successfull : " + response);
+      },(response) => {
+        console.log("Kommunicate create conversation failed : " + response);
       });
       
-       console.log("Kommunicate create conversation successfull : " + response);
-    },(response) => {
-      console.log("Kommunicate create conversation failed : " + response);
-    });
+     },(response)=>{
+
+     });
   }
 
 }
