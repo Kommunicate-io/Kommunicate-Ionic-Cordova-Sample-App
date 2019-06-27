@@ -45,11 +45,30 @@ export class Login {
       },()=>{
         console.log("Kommunicate Push failed response : " + response);
       });
-       kommunicate.launchConversation(function(response) {
-         console.log("Kommunicate launch success response : " + response);
-       }, function(response) {
-        console.log("Kommunicate launch failure response : " + response);
-       });
+      //  kommunicate.launchConversation(function(response) {
+      //    console.log("Kommunicate launch success response : " + response);
+      //  }, function(response) {
+      //   console.log("Kommunicate launch failure response : " + response);
+      //  });
+      let convInfo = {
+        'agentIds': ['reytum@live.com'],
+        'botIds': ['Hotel-Booking-Assistant']  //list of botIds
+       };
+       
+    kommunicate.startNewConversation(convInfo, (response) => {
+        //You can launch the particular conversation here, response will be the clientChannelKey
+         let convObj = {
+          'clientChannelKey' : response, //pass the clientChannelKey here
+          'takeOrder' : true //skip chat list on back press, pass false if you want to show chat list on back press
+        };
+        
+        kommunicate.launchParticularConversation(convObj, function(response) {
+          //Conversation launched successfully
+        }, function(response) {
+          //Conversation launch failed
+        });
+      },(response) => {
+      });
     }, function(response) {
       console.log("Kommunicate login failure response : " + response);
     });
