@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "151348394719",
-    "firebase_url": "https://kommunicate-sample-app.firebaseio.com",
-    "project_id": "kommunicate-sample-app",
-    "storage_bucket": "kommunicate-sample-app.appspot.com"
+    "project_number": "123",
+    "firebase_url": "https://cordova-plugin-firebase.firebaseio.com",
+    "project_id": "cordova-plugin-firebase",
+    "storage_bucket": "cordova-plugin-firebase.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:151348394719:android:d7c652f89d37a350",
+        "mobilesdk_app_id": "1:123:android:123",
         "android_client_info": {
-          "package_name": "io.kommunicate.app"
+          "package_name": "com.github.cordova_plugin_firebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "151348394719-9miven2mqs1bdl9q8uqfaq9h73ghuenc.apps.googleusercontent.com",
+          "client_id": "123.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBeXqOwAcTsB-6IrF_rK4SKpN_BYE2Qc4w"
+          "current_key": "123"
         }
       ],
       "services": {
