@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { Platform } from 'ionic-angular';
+import { Welcome } from '../welcome/welcome';
 
 /**
  * Generated class for the Login page.
@@ -19,6 +20,7 @@ export class Login {
 
   userId:string = '';
   password:string = '';
+  appId: string = "22823b4a764f9944ad7913ddb3e43cae1";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform) {
 
@@ -34,7 +36,7 @@ export class Login {
         'userId' : this.userId,   //Replace it with the userId of the logged in user
         'password' : this.password,  //Put password here
         'authenticationTypeId' : 1,
-        'applicationId' : '22823b4a764f9944ad7913ddb3e43cae1',  //replace "applozic-sample-app" with Application Key from Applozic Dashboard
+        'applicationId' : this.appId ,  //replace "applozic-sample-app" with Application Key from Applozic Dashboard
         'deviceApnsType' : 0    //Set 0 for Development and 1 for Distribution (Release)
     };
 
@@ -54,7 +56,6 @@ export class Login {
       console.log("Kommunicate login failure response : " + response);
     });
   }
-
 }
 
 declare var kommunicate: any;

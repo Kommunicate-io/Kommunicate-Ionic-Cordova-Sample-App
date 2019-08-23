@@ -1,144 +1,152 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  Component
+} from '@angular/core';
+import {
+  IonicPage,
+  NavController,
+  NavParams
+} from 'ionic-angular';
 
-import { Login } from '../login/login';
-import { Signup } from '../signup/signup';
-/**
- * Generated class for the Welcome page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.d
- */
+import {
+  Login
+} from '../login/login';
+import {
+  Signup
+} from '../signup/signup';
+// *
+//  * Generated class for the Welcome page.
+//  *
+//  * See http://ionicframework.com/docs/components/#navigation for more info
+//  * on Ionic pages and navigation.d
+ 
 @IonicPage()
 @Component({
   selector: 'page-welcome',
   templateUrl: 'welcome.html',
 })
 export class Welcome {
+  appId: string = "22823b4a764f9944ad7913ddb3e43cae1";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    (function(d, m){
-      var kommunicateSettings = {"appId":"kommunicate-support","conversationTitle":"Rey-TUM","popupWidget":true,"automaticChatOpenOnNavigation":true};
-      var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-      s.src = "https://widget-test.kommunicate.io/kommunicate.app";
-      var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-      window.kommunicate = m; m._globals = kommunicateSettings;
-    })(document, window.kommunicate || {});
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Welcome');
   }
 
-  login(){
-    //this.navCtrl.push(Login);
-    //this.navCtrl.push(Home);
-    // kommunicate.isLoggedIn((response) => {
-    //   if(response === "true"){
-    //     kommunicate.launchConversation((response) => {
-    //       console.log("Kommunicate launch success response : " + response);
-    //     }, (response) => {
-    //      console.log("Kommunicate launch failure response : " + response);
-    //     });
-    //   }else{
-    //     this.navCtrl.push(Login);
-    //   }
+  login() {
+    //  var kmUser = {
+    //     'userId' : 'reytum',   //Replace it with the userId of the logged in user
+    //     'password' : 'reytum',  //Put password here
+    //     'authenticationTypeId' : 1,
+    //     'applicationId' : this.appId ,  //replace "applozic-sample-app" with Application Key from Applozic Dashboard
+    //     'deviceApnsType' : 0    //Set 0 for Development and 1 for Distribution (Release)
+    // };
+
+    // kommunicate.login(kmUser, (r)=>{
+    //   console.log("Kommunicate login successfull : " + r);
+    // }, (e)=>{
+    //   console.log("Kommunicate logout failed : " + e);
     // });
+   kommunicate.isLoggedIn((response) => {
+       console.log("Received isLoggedIn response : " + response)
+      if (response === "true") {
+        kommunicate.launchConversation((response) => {
+          console.log("Kommunicate launch success response : " + response);
+        }, (response) => {
+          console.log("Kommunicate launch failure response : " + response);
+        });
+      } else {
+        this.navCtrl.push(Login);
+      }
+    });
   }
 
-  signup(){
-  //  kommunicate.isLoggedIn(function(response){
-  //    if(response === "true"){
-  //      kommunicate.logout(function(response){
-  //        console.log("Kommunicate logout successfull : " + response);
-  //      }, function(response){
-  //        console.log("Kommunicate logout failed : " + response);
-  //      });
-  //    }
-  //  });
+  signup() {
+    kommunicate.isLoggedIn(function (response) {
+      if (response === "true") {
+        kommunicate.logout(function (response) {
+          console.log("Kommunicate logout successfull : " + response);
+        }, function (response) {
+          console.log("Kommunicate logout failed : " + response);
+        });
+      }
+    });
   }
 
-  startNew(){
-  //     var user = {
-  //     'userId' : 'reytum',   //Replace it with the userId of the logged in user
-  //     'password' : 'reytum',  //Put password here
-  //     'authenticationTypeId' : 1,
-  //     'applicationId' : '22823b4a764f9944ad7913ddb3e43cae1',  //replace "applozic-sample-app" with Application Key from Applozic Dashboard
-  //     'deviceApnsType' : 0    //Set 0 for Development and 1 for Distribution (Release)
-  // };
+  startNew() {
+    // var user = {
+    //   'userId': 'reytum', //Replace it with the userId of the logged in user
+    //   'password': 'reytum', //Put password here
+    //   'authenticationTypeId': 1,
+    //   'applicationId': this.appId, //replace "applozic-sample-app" with Application Key from Applozic Dashboard
+    //   'deviceApnsType': 0 //Set 0 for Development and 1 for Distribution (Release)
+    // };
 
-  // let conv = {
-  //   'appId' : '22823b4a764f9944ad7913ddb3e43cae1',
-  //   'kmUser' : JSON.stringify(user)
-  // }
+    // let conv = {
+    //   'appId': this.appId,
+    //   'kmUser': JSON.stringify(user)
+    // }
 
-  // kommunicate.startSingleChat(conv, (response) => {
-  //      console.log("Test Success response : " + response);
-  // }, (response) =>{
-  //      console.log("Test Failure response : " + response);
-  // });
-  }
-
-  startOrGet(){
-  //   var user = {
-  //     'userId' : 'reytum6',   //Replace it with the userId of the logged in user
-  //     'password' : 'reytum',  //Put password here
-  //     'authenticationTypeId' : 1,
-  //     'applicationId' : '22823b4a764f9944ad7913ddb3e43cae1',  //replace "applozic-sample-app" with Application Key from Applozic Dashboard
-  //     'deviceApnsType' : 0    //Set 0 for Development and 1 for Distribution (Release)
-  // };
-
-  //   let conv = {
-  //     'appId' : '22823b4a764f9944ad7913ddb3e43cae1',
-  //     'createOnly': true,
-  //     'kmUser': JSON.stringify(user),
-  //     'isUnique' : true,
-  //     'groupName': "My Test Group",
-  //     'agentIds':['reytum@live.com', 'sunil@applozic.com', 'archit@kommunicate.io'],
-  //     'botIds':['liz']
-  //   };
-
-  //   kommunicate.conversationBuilder(conv, (r)=> {
-  //     console.log("Success conBuilder : " + r);
-  //     var grpy = {
-  //       'clientChannelKey' : r,
-  //       'takeOrder' : true
-  //     };
-  //     kommunicate.launchParticularConversation(grpy, (launchResponse) => {}, (launchError) => {});
-  //   }, (r)=>{
-  //     console.log("Failure conBuilder : " + r);
-  //   });
-  }
-
-  loginUser(user: any, userList: any){
-    // kommunicate.isLoggedIn((response) => {
-    //   if(response === "true"){
-    //     this.launchChat(userList);
-    //   }else{
-    //     kommunicate.login(user, (loginResponse)=>{
-    //       this.launchChat(userList);
-    //     }, (loginError)=>{
-    //       console.log("User login failed : " + JSON.stringify(loginError));
-    //     });
-    //   }
+    // kommunicate.startSingleChat(conv, (response) => {
+    //   console.log("Test Success response : " + response);
+    // }, (response) => {
+    //   console.log("Test Failure response : " + response);
     // });
+
+      let convObj = {
+        'clientChannelKey' : '24930820', //pass the clientChannelKey here
+        'takeOrder' : true //skip chat list on back press, pass false if you want to show chat list on back press
+      };
+
+    kommunicate.launchParticularConversation(convObj, (response) => {
+       console.log('Successfully launched conversation with conversation Id : ' + response)
+    }, (response) => {
+       console.log('Failed to launch conversation with conversation Id : ' + response)
+    });
   }
 
-  launchChat(userList : any){
+  startOrGet() {
+    var user = {
+      'userId': 'reytum6', //Replace it with the userId of the logged in user
+      'password': 'reytum', //Put password here
+      'authenticationTypeId': 1,
+      'applicationId': this.appId, //replace "applozic-sample-app" with Application Key from Applozic Dashboard
+      'deviceApnsType': 0 //Set 0 for Development and 1 for Distribution (Release)
+    };
+
+    let conv = {
+      'appId': this.appId,
+      'createOnly': true,
+      'withPreChat': true,
+      'isUnique': true,
+      'groupName': "My Test Group"
+    };
+
+    kommunicate.conversationBuilder(conv, (r) => {
+      console.log("Success conBuilder : " + r);
+      var grpy = {
+        'clientChannelKey': r,
+        'takeOrder': true
+      };
+      kommunicate.launchParticularConversation(grpy, (launchResponse) => {}, (launchError) => {});
+    }, (r) => {
+      console.log("Failure conBuilder : " + r);
+    });
+  }
+
+  // launchChat(userList: any) {
   //   kommunicate.startOrGetConversation(userList, (createResponse) => {
   //     var grpy = {
-  //       'clientChannelKey' : createResponse,
-  //       'takeOrder' : true
+  //       'clientChannelKey': createResponse,
+  //       'takeOrder': true
   //     };
   //     kommunicate.launchParticularConversation(grpy, (launchResponse) => {}, (launchError) => {});
-  //   },(createError) => {
-  //      console.log("Unable to create chat : " + JSON.stringify(createError));
+  //   }, (createError) => {
+  //     console.log("Unable to create chat : " + JSON.stringify(createError));
   //   });
   // }
-
-}
 }
 
-//declare var kommunicate: any;
-
-declare var window: any;
-declare var document: any;
+declare var kommunicate: any;
