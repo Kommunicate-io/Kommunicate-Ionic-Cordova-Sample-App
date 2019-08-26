@@ -82,6 +82,7 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="kommunicate-cordova-plugin" spec="0.4.6" />
-    <engine name="ios" spec="~4.5.5" />
+    <plugin name="kommunicate-cordova-plugin" spec="/Users/ashish/Documents/Projects/Ionic/Kommunicate/Kommunicate-Cordova-Ionic-PhoneGap-Chat-Plugin" />
+    <engine name="browser" spec="5.0.4" />
+    <engine name="android" spec="7.1.4" />
 </widget>
