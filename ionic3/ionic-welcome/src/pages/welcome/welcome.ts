@@ -135,18 +135,6 @@ export class Welcome {
       console.log("Failure conBuilder : " + r);
     });
   }
-
-  // launchChat(userList: any) {
-  //   kommunicate.startOrGetConversation(userList, (createResponse) => {
-  //     var grpy = {
-  //       'clientChannelKey': createResponse,
-  //       'takeOrder': true
-  //     };
-  //     kommunicate.launchParticularConversation(grpy, (launchResponse) => {}, (launchError) => {});
-  //   }, (createError) => {
-  //     console.log("Unable to create chat : " + JSON.stringify(createError));
-  //   });
-  // }
 }
 
 declare var kommunicate: any;
