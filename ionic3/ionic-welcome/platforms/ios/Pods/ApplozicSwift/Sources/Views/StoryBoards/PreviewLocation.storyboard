@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ihs-ZY-kzc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Base Navigation View Controller-->
+        <scene sceneID="isp-io-5Xa">
+            <objects>
+                <navigationController id="ihs-ZY-kzc" customClass="AXBaseNavigationViewController" customModule="sampleapp_completeswift" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="JbF-BQ-yhQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.87843137250000003" green="0.035294117649999998" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="l16-FW-5Jn" kind="relationship" relationship="rootViewController" id="iWS-tO-GNo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="55w-Wo-cCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-618" y="110"/>
+        </scene>
+        <!--Location-->
+        <scene sceneID="f2X-9p-bso">
+            <objects>
+                <viewController storyboardIdentifier="PreviewLocationViewController" id="l16-FW-5Jn" customClass="PreviewLocationViewController" customModule="sampleapp_completeswift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d84-cu-yF9"/>
+                        <viewControllerLayoutGuide type="bottom" id="qVt-t9-sBu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="efs-qd-iIY">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Op-va-Tic" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96t-ZF-uGm" userLabel="Current location">
+                                <rect key="frame" x="323" y="551" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="GWu-8N-6Fw"/>
+                                    <constraint firstAttribute="height" constant="40" id="vLL-lo-7jH"/>
+                                </constraints>
+                                <state key="normal" image="button_current_location"/>
+                                <connections>
+                                    <action selector="locateMe" destination="l16-FW-5Jn" eventType="touchUpInside" id="jba-6S-Sxl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qVt-t9-sBu" firstAttribute="top" secondItem="96t-ZF-uGm" secondAttribute="bottom" constant="12" id="4GY-rh-UUw"/>
+                            <constraint firstAttribute="trailing" secondItem="96t-ZF-uGm" secondAttribute="trailing" constant="12" id="7kA-c9-IrX"/>
+                            <constraint firstAttribute="trailing" secondItem="6Op-va-Tic" secondAttribute="trailing" id="8Mr-Gh-hdo"/>
+                            <constraint firstItem="6Op-va-Tic" firstAttribute="top" secondItem="d84-cu-yF9" secondAttribute="bottom" id="Egk-X6-7Cv"/>
+                            <constraint firstItem="qVt-t9-sBu" firstAttribute="top" secondItem="6Op-va-Tic" secondAttribute="bottom" id="PYd-8V-Qwf"/>
+                            <constraint firstItem="6Op-va-Tic" firstAttribute="leading" secondItem="efs-qd-iIY" secondAttribute="leading" id="k5j-TB-PZh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Location" id="nas-G2-PiR">
+                        <barButtonItem key="leftBarButtonItem" image="icon_close_white" id="eBM-Hh-C2A">
+                            <connections>
+                                <action selector="dismissTapped:" destination="l16-FW-5Jn" id="60C-EP-qXA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="6Op-va-Tic" id="Kg8-R7-EZo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GNZ-Hn-yZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="108.39580209895054"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button_current_location" width="40" height="40"/>
+        <image name="icon_close_white" width="16" height="16"/>
+    </resources>
+</document>

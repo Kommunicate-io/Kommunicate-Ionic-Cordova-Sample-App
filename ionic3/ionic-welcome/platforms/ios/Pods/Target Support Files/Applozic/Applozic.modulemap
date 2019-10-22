@@ -1,0 +1,6 @@
+framework module Applozic {
+  umbrella header "Applozic-umbrella.h"
+
+  export *
+  module * { export * }
+}

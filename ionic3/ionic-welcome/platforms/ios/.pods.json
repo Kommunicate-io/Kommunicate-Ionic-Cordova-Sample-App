@@ -1,0 +1,12 @@
+{
+	"pods": {
+		"Kommunicate": {
+			"type": "pod",
+			"name": "Kommunicate",
+			"version": "2.3.0"
+		}
+	},
+	"sources": {},
+	"iosMinVersion": "10.0",
+	"useFrameworks": true
+}

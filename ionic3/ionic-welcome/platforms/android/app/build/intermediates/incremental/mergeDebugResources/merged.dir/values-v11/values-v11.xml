@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="addressButton" parent="@android:style/Widget.Holo.Button.Borderless"/>
+    <style name="listViewActivatedStyle">
+        <item name="android:background">?android:attr/activatedBackgroundIndicator</item>
+    </style>
+    <style name="quickContactBadgeStyle"/>
+</resources>

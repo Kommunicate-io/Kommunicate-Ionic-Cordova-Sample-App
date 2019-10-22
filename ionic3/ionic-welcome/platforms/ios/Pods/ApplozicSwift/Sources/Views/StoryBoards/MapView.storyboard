@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WSq-8e-eNR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Share Location-->
+        <scene sceneID="6FR-CW-DXl">
+            <objects>
+                <viewController storyboardIdentifier="MapView" id="gjQ-qY-9vY" customClass="ALKMapViewController" customModule="ApplozicSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WIy-Ji-vjS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lzk-Jl-kYl">
+                                <rect key="frame" x="0.0" y="64" width="375" height="533"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK4-XT-6lM">
+                                <rect key="frame" x="133" y="617" width="109" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FaM-DL-aDm"/>
+                                    <constraint firstAttribute="width" constant="109" id="Wrm-bh-mpZ"/>
+                                </constraints>
+                                <state key="normal" title="Send Location"/>
+                                <connections>
+                                    <action selector="sendLocationAction:" destination="gjQ-qY-9vY" eventType="touchUpInside" id="PMw-B2-EhR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WK4-XT-6lM" firstAttribute="top" secondItem="lzk-Jl-kYl" secondAttribute="bottom" constant="20" id="2FC-uJ-DCj"/>
+                            <constraint firstItem="lzk-Jl-kYl" firstAttribute="top" secondItem="1Or-5J-Uiq" secondAttribute="top" id="9Yv-1g-vBg"/>
+                            <constraint firstItem="1Or-5J-Uiq" firstAttribute="trailing" secondItem="lzk-Jl-kYl" secondAttribute="trailing" id="YG5-QK-JHM"/>
+                            <constraint firstItem="lzk-Jl-kYl" firstAttribute="leading" secondItem="1Or-5J-Uiq" secondAttribute="leading" id="dlV-xE-rSP"/>
+                            <constraint firstItem="WK4-XT-6lM" firstAttribute="centerX" secondItem="WIy-Ji-vjS" secondAttribute="centerX" id="lvS-Ue-Xxv"/>
+                            <constraint firstItem="1Or-5J-Uiq" firstAttribute="bottom" secondItem="WK4-XT-6lM" secondAttribute="bottom" constant="20" id="mok-EP-rhw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Or-5J-Uiq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Share Location" id="olZ-NR-Pxd">
+                        <barButtonItem key="leftBarButtonItem" image="icon_close_white" id="fWF-AJ-qXh">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="closeButtonAction:" destination="gjQ-qY-9vY" id="xZK-fL-1pB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ShareLocationButton" destination="WK4-XT-6lM" id="sLG-jv-Nqt"/>
+                        <outlet property="mapView" destination="lzk-Jl-kYl" id="WkR-Me-PSc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mme-fR-BhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28" y="152.47376311844079"/>
+        </scene>
+        <!--Base Navigation View Controller-->
+        <scene sceneID="ki4-nW-qC9">
+            <objects>
+                <navigationController id="WSq-8e-eNR" customClass="ALKBaseNavigationViewController" customModule="ApplozicSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wF1-Ya-Xf2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gjQ-qY-9vY" kind="relationship" relationship="rootViewController" id="OLG-fu-6fU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ez-Fb-omL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-737" y="146"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_close_white" width="16" height="16"/>
+    </resources>
+</document>

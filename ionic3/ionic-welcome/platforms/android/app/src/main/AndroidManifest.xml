@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="io.kommunicate.app"
+    android:hardwareAccelerated="true"
+    android:versionCode="1"
+    android:versionName="0.0.1">
+
+    <application
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name="MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+            android:label="@string/activity_name"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter android:label="@string/launcher_name">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAv1wf5eMyErPaU3l8EnMUmOsoYJ2joC70" />
+        <provider
+            android:name="de.appplant.cordova.emailcomposer.Provider"
+            android:authorities="${applicationId}.emailcomposer.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/emailcomposer_provider_paths" />
+        </provider>
+        <service
+            android:name="io.kommunicate.phonegap.notification.FcmListenerService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="27" />
+</manifest>

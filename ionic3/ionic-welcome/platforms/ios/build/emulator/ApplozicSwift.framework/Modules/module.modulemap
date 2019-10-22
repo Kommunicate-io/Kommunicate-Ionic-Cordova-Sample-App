@@ -1,0 +1,11 @@
+framework module ApplozicSwift {
+  umbrella header "ApplozicSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ApplozicSwift.Swift {
+    header "ApplozicSwift-Swift.h"
+    requires objc
+}

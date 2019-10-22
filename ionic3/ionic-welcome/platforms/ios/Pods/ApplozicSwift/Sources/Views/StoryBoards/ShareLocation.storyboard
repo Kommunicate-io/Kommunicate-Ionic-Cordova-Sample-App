@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ekZ-mf-7SD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Base Navigation View Controller-->
+        <scene sceneID="KdP-m9-S0z">
+            <objects>
+                <navigationController id="ekZ-mf-7SD" customClass="ALBaseNavigationViewController" customModule="sampleapp_completeswift" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IkB-fz-FOO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="g1v-O6-33i" kind="relationship" relationship="rootViewController" id="GUf-NS-ChH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhm-8r-scW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-618" y="110"/>
+        </scene>
+        <!--Share Location-->
+        <scene sceneID="L5L-4t-1Ur">
+            <objects>
+                <viewController storyboardIdentifier="ShareLocationViewController" id="g1v-O6-33i" customClass="ShareLocationViewController" customModule="sampleapp_completeswift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ipR-mj-5E0"/>
+                        <viewControllerLayoutGuide type="bottom" id="G4f-cj-kgg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sAp-Ww-P5d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpG-FB-gnW" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_share_location" translatesAutoresizingMaskIntoConstraints="NO" id="ugq-cN-hg9" userLabel="pin">
+                                <rect key="frame" x="175" y="293.5" width="24" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="d1G-zr-TVC"/>
+                                    <constraint firstAttribute="height" constant="40" id="szm-bj-ar9"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="bg_share_location" translatesAutoresizingMaskIntoConstraints="NO" id="deE-Px-iwD">
+                                <rect key="frame" x="120" y="250.5" width="136" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="PnN-5K-1zf"/>
+                                    <constraint firstAttribute="width" secondItem="deE-Px-iwD" secondAttribute="height" multiplier="111:35" id="T4j-cb-fJ5"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zA2-fz-uQW" userLabel="Current location">
+                                <rect key="frame" x="323" y="615" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1gy-5E-gtM"/>
+                                    <constraint firstAttribute="height" constant="40" id="n0f-oX-2rM"/>
+                                </constraints>
+                                <state key="normal" image="button_current_location"/>
+                                <connections>
+                                    <action selector="locateMe" destination="g1v-O6-33i" eventType="touchUpInside" id="Tso-3C-jOS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECp-iX-d0i">
+                                <rect key="frame" x="130" y="250.5" width="116" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Share location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareLocationTapped:" destination="g1v-O6-33i" eventType="touchUpInside" id="6rF-bP-uzl"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="cqp-0O-qEr">
+                                <rect key="frame" x="178" y="256.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cqp-0O-qEr" firstAttribute="centerY" secondItem="ECp-iX-d0i" secondAttribute="centerY" id="5bM-lU-9l4"/>
+                            <constraint firstItem="ugq-cN-hg9" firstAttribute="centerY" secondItem="sAp-Ww-P5d" secondAttribute="centerY" constant="-20" id="8Qc-Kc-VgY"/>
+                            <constraint firstItem="ugq-cN-hg9" firstAttribute="top" secondItem="deE-Px-iwD" secondAttribute="bottom" id="APJ-aD-DT1"/>
+                            <constraint firstItem="deE-Px-iwD" firstAttribute="centerX" secondItem="sAp-Ww-P5d" secondAttribute="centerX" id="GeB-Wt-95J"/>
+                            <constraint firstItem="ugq-cN-hg9" firstAttribute="centerX" secondItem="sAp-Ww-P5d" secondAttribute="centerX" id="M99-Q0-zNV"/>
+                            <constraint firstAttribute="trailing" secondItem="zpG-FB-gnW" secondAttribute="trailing" id="SKW-1h-6FM"/>
+                            <constraint firstItem="ECp-iX-d0i" firstAttribute="centerY" secondItem="deE-Px-iwD" secondAttribute="centerY" constant="-5" id="TGJ-rF-t1z"/>
+                            <constraint firstItem="cqp-0O-qEr" firstAttribute="centerX" secondItem="ECp-iX-d0i" secondAttribute="centerX" id="TQE-K6-B19"/>
+                            <constraint firstItem="zpG-FB-gnW" firstAttribute="leading" secondItem="sAp-Ww-P5d" secondAttribute="leading" id="TTV-ID-YBR"/>
+                            <constraint firstItem="zpG-FB-gnW" firstAttribute="top" secondItem="ipR-mj-5E0" secondAttribute="bottom" id="c7u-PF-fl2"/>
+                            <constraint firstAttribute="trailing" secondItem="zA2-fz-uQW" secondAttribute="trailing" constant="12" id="fg8-pG-5Q8"/>
+                            <constraint firstItem="ECp-iX-d0i" firstAttribute="centerX" secondItem="deE-Px-iwD" secondAttribute="centerX" id="gQP-k8-sCt"/>
+                            <constraint firstItem="G4f-cj-kgg" firstAttribute="top" secondItem="zA2-fz-uQW" secondAttribute="bottom" constant="12" id="k3H-qY-wi7"/>
+                            <constraint firstItem="G4f-cj-kgg" firstAttribute="top" secondItem="zpG-FB-gnW" secondAttribute="bottom" id="op9-NM-gms"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Share Location" id="wHf-jG-cj6">
+                        <barButtonItem key="leftBarButtonItem" image="icon_close_white" id="7qE-mP-sL7">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="dismissTapped:" destination="g1v-O6-33i" id="RFs-GV-l1w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="cqp-0O-qEr" id="PHM-bC-MHY"/>
+                        <outlet property="mapView" destination="zpG-FB-gnW" id="iUS-MW-M1f"/>
+                        <outlet property="pinImageView" destination="ugq-cN-hg9" id="bta-04-guM"/>
+                        <outlet property="shareLocationButton" destination="ECp-iX-d0i" id="Hwa-uN-g6d"/>
+                        <outlet property="shareLocationImageView" destination="deE-Px-iwD" id="gom-a5-01i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="smh-Ol-Zhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="109"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg_share_location" width="111" height="35"/>
+        <image name="button_current_location" width="40" height="40"/>
+        <image name="icon_close_white" width="16" height="16"/>
+        <image name="icon_share_location" width="24" height="39"/>
+    </resources>
+</document>

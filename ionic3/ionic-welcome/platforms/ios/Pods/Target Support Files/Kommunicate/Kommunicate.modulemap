@@ -1,0 +1,6 @@
+framework module Kommunicate {
+  umbrella header "Kommunicate-umbrella.h"
+
+  export *
+  module * { export * }
+}

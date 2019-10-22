@@ -1,0 +1,4 @@
+#Tue Oct 22 20:35:42 IST 2019
+base.0=/Users/ashish/Documents/Projects/Ionic/Kommunicate/New/Kommunicate-Ionic-Cordova-Sample-App/ionic3/ionic-welcome/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

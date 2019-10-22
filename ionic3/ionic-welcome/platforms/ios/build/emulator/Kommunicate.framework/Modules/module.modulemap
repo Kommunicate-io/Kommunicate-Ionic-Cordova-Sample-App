@@ -1,0 +1,11 @@
+framework module Kommunicate {
+  umbrella header "Kommunicate-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Kommunicate.Swift {
+    header "Kommunicate-Swift.h"
+    requires objc
+}

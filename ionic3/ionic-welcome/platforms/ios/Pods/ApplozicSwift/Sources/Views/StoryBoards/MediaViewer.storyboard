@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8bX-SG-1Dm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Media Viewer View Controller-->
+        <scene sceneID="HhP-jc-ZfQ">
+            <objects>
+                <viewController storyboardIdentifier="ALKMediaViewerViewController" id="5Z1-2a-SpN" customClass="ALKMediaViewerViewController" customModule="ApplozicSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vOr-vd-QmO"/>
+                        <viewControllerLayoutGuide type="bottom" id="XPG-aN-Vp3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yft-8Y-7jO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7D-nR-f6r" userLabel="fakeView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f7D-nR-f6r" firstAttribute="top" secondItem="Yft-8Y-7jO" secondAttribute="top" id="f0f-3w-gr6"/>
+                            <constraint firstItem="f7D-nR-f6r" firstAttribute="leading" secondItem="Yft-8Y-7jO" secondAttribute="leading" id="gfP-u3-0Fy"/>
+                            <constraint firstAttribute="trailing" secondItem="f7D-nR-f6r" secondAttribute="trailing" id="qkw-e1-wPJ"/>
+                            <constraint firstItem="XPG-aN-Vp3" firstAttribute="top" secondItem="f7D-nR-f6r" secondAttribute="bottom" id="uNN-o3-uJe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tz6-2u-run">
+                        <barButtonItem key="leftBarButtonItem" image="icon_close_white" id="OuS-ac-G52">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="dismissPress:" destination="5Z1-2a-SpN" id="X9D-rn-SNQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="fakeView" destination="f7D-nR-f6r" id="XuU-nY-Z8n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnf-Dm-eTR" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="197"/>
+        </scene>
+        <!--Base Navigation View Controller-->
+        <scene sceneID="AQ5-A7-Ihr">
+            <objects>
+                <navigationController storyboardIdentifier="MediaViewerNavigationViewController" id="8bX-SG-1Dm" customClass="ALBaseNavigationViewController" customModule="ApplozicSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nw5-Ag-yUP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5Z1-2a-SpN" kind="relationship" relationship="rootViewController" id="pf8-iy-hdC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pcn-jX-kgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-68" y="198"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_close_white" width="16" height="16"/>
+    </resources>
+</document>
