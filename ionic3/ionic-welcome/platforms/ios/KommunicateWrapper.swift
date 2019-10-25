@@ -117,5 +117,11 @@ import UserNotifications
         Kommunicate.defaultConfiguration.hideFaqButtonInConversationView = true // Hide from Conversation screen
         Kommunicate.defaultConfiguration.hideEmptyStateStartNewButtonInConversationList = true
         Kommunicate.defaultConfiguration.hideStartConversationButton = true
+        // Use `appearance(whenContainedInInstancesOf:)` method to limit the changes to instances of `ALKBaseNavigationViewController`.
+        let navigationBarProxy = UINavigationBar.appearance(whenContainedInInstancesOf: [ALKBaseNavigationViewController.self])
+        // Tint color will be applied to the icons used in navigation bar of chat screen.
+        navigationBarProxy.tintColor = UIColor.blue
+        // Title text attributes will be applied to the title of navigation bar of chat screen.
+        navigationBarProxy.titleTextAttributes = [.foregroundColor: UIColor.blue]
     }
 }
